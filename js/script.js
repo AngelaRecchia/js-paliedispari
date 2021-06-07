@@ -36,10 +36,11 @@ if (es == 1) {
 /* Palidroma: Chiedere all’utente di inserire una parola. Creare una funzione per capire se la parola inserita è palindroma */
 
     var parola = prompt("Inserisci una parola, ti dirò se è palindroma");
-    var parFix = removeSpaces(parola).toLowerCase;
+    var parFix = removeSpaces(parola).toLowerCase();
     /* var noSpaces = parola.replace(/\s/g, "").toLowerCase; */ //versione con regex
     var esito = " non è palindroma";
-    if (isPal(parFix)) esito = " è palindroma"
+    console.log(parFix);
+    if (isPal(parFix)) esito = " è palindroma";
 
     document.getElementById("text").innerHTML = "La parola \"" + parola + "\"" + esito;
 
