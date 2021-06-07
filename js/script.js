@@ -1,4 +1,5 @@
-do var es = prompt("Scegli esercizio: 1 -> Pari o Dispari  oppure 2 -> Parola palindroma")
+do 
+    var es = prompt("Scegli esercizio: 1 -> Pari o Dispari  oppure 2 -> Parola palindroma")
 while (es != 1 && es != 2)
 
 if (es == 1) {
@@ -34,24 +35,33 @@ if (es == 1) {
 } else if (es == 2) {
 /* Palidroma: Chiedere all’utente di inserire una parola. Creare una funzione per capire se la parola inserita è palindroma */
 
-var parola = prompt("Inserisci una parola, ti dirò se è palindroma");
-var esito = " non è palindroma";
-if (isPal(parola)) esito = " è palindroma"
-document.getElementById("text").innerHTML = "La parola \"" + parola + "\"" + esito;
+    var parola = prompt("Inserisci una parola, ti dirò se è palindroma");
+    var noSpaces = parola.replace(/\s/g, "").toLowerCase;
+    var esito = " non è palindroma";
+    if (isPal(noSpaces)) esito = " è palindroma"
 
-function isPal(parola) {
-    var i = 0;
-    var j = parola.length - 1;
+    document.getElementById("text").innerHTML = "La parola \"" + parola + "\"" + esito;
 
-    while (i < parola.length / 2 && j > parola.length / 2) {
-        if (parola.charAt(i) != parola.charAt(j)) {
-            return false;
+    
+    /* metodo 1 */
+    function isPal(parola) {
+        var i = 0;
+        var j = parola.length - 1;
+
+        while (i < parola.length / 2 && j > parola.length / 2) {
+            if (parola.charAt(i) != parola.charAt(j)) {
+                return false;
+            }
+            i++;
+            j--;
         }
-        i++;
-        j--;
+
+        return true;
     }
 
-    return true;
-}
+    /* metodo 2 */
+    function isP (parola) {
+        return parola.split("").reverse().join("") == parola;
+    }
 
 }
