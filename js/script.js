@@ -69,7 +69,10 @@ if (es == 1) {
     /* funzione 'manuale' per rimuovere gli spazi */
     function removeSpaces(frase) {
         for (var i = 0; i < frase.length; i++) {
-            frase = frase.replace(" ", "");
+            if (frase.charAt(i) == " "){
+                frase = frase.replace(" ", "");
+                i--;
+            }
         }
         return frase;
     }
